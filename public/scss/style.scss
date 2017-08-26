@@ -1,0 +1,13 @@
+@import "./bulma/sass/utilities/initial-variables";
+$blue: #2B6AB3;
+$red: #D02845;
+$yellow: #F7B81B;
+$black: #231F20;
+$red-invert: #fff;
+$family-sans-serif: "Montserrat", sans-serif;
+$primary: $red;
+$info: $blue;
+$primary-invert: $red-invert;
+$danger: $orange;
+$family-primary: $family-sans-serif;
+@import "./bulma/bulma";

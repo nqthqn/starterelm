@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>ExCELL-e</title>
+        <!-- CSS -->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,900" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+    </head>
+    <body>
+        <script type="text/javascript" src="js/main.js">
+
+        </script>
+        <script type="text/javascript">
+            var app = Elm.Main.fullscreen({"token":token()})
+
+            // Local Storage ports
+            app.ports.set.subscribe(function(keyValue) {
+                var [key, value] = keyValue
+                window.localStorage.setItem(key,
+                    JSON.stringify(value)
+                )
+            })
+
+            app.ports.remove.subscribe(function(key) {
+                localStorage.removeItem(key)
+            })
+
+            app.ports.clear.subscribe(function(i) {
+                localStorage.clear()
+            })
+
+            function token() {
+                if (localStorage.getItem("token") == null) {
+                    return "";
+                }
+                try {
+                    return JSON.parse(localStorage.getItem("token")).token;
+                } catch (e) {
+                    return ""
+                }
+            }
+
+        </script>
+    </body>
+</html>
